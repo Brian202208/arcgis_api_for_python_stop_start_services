@@ -9,7 +9,7 @@ from arcgis.gis import GIS
 
 import arcgis.gis.admin
 
-gis = GIS("https://arcgisportal.tohowater.com/arcgis/home/", "portaladmin", "getmein2myPM")
+gis = GIS("", "", "")
 
 gis_servers = gis.admin.servers.list()
 

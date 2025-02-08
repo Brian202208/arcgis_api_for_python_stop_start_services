@@ -18,7 +18,7 @@ def function_start_stop_services(action):
         sys.exit(1)
         
     # Initialize connection to GIS (Replace with your credentials)
-    gis = GIS("https://arcgisportal.tohowater.com/arcgis/home/", "", "")
+    gis = GIS("", "", "")
     
     try:
         gis_servers = gis.admin.servers.list()

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+# Author: Michael Preko Nkum
 
 from arcgis.gis import GIS
 import arcgis.gis.admin

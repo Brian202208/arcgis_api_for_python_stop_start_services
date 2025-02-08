@@ -3,6 +3,7 @@
 
 # In[60]:
 # this script basically stops/start services as part of the state zero script.
+# Author: Michael Preko Nkum
 
 from arcgis.gis import GIS
 

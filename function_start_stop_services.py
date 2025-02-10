@@ -61,7 +61,7 @@ def function_start_stop_services(action):
         for folder in gis_servers1:
             for server in folder.services:
                 try:
-                    if server[0] == 'folders':
+                    if server[0] == 'folders': # data structure is in tuple (obtaining the first element of the tuple) ('folders',['folder1','folder2','folder3']) #hosted_services = server[1].services.list(folder='All_Work_Orders')
                         for folder_name in list_folders:
                             hosted_services = folder.services.list(folder=folder_name)
                             for service in hosted_services:

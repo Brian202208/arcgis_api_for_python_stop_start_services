@@ -3,22 +3,23 @@
 
 # In[60]:
 # this script basically stops/start services as part of the state zero script.
+# This script can be scheduled to run as needed.
 # Author: Michael Preko Nkum
 
+# import modules
 from arcgis.gis import GIS
 
 
 import arcgis.gis.admin
 
+# enter parameters for the server url, credentials(username) and password
 gis = GIS("", "", "")
 
 gis_servers = gis.admin.servers.list()
 
 
-for server in gis_servers:
-    print("Hello from ArcGIS API for Python!",server)
 
-
+# loops through the services
 for server in gis_servers:
     for service in server.services.list():
         #service.stop()
@@ -28,7 +29,7 @@ for server in gis_servers:
 
 gis_servers1 = gis.admin.servers.list()
 
-
+# loops through the folders and sub-folders to obtain the list_folders 
 for folder in gis_servers1:
     for server in folder.services:
         try:
@@ -39,7 +40,7 @@ for folder in gis_servers1:
         except:
             pass
            
-
+# loops through the folders and sub-folders to stop or start the services.
 for folder in gis_servers1:
     #for server in folder.services:
     for server in folder.services: # array of tuples

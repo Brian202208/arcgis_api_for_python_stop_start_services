@@ -44,7 +44,7 @@ def function_start_stop_services(action):
 
         
         gis_servers1 = gis.admin.servers.list()
-        # loops through to obtain the folders property in a tuple
+        # loops through to obtain the folders in a tuple
         for folder in gis_servers1:
             for server in folder.services:
                 try:

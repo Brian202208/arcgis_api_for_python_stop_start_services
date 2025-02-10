@@ -21,11 +21,14 @@ def function_start_stop_services(action):
     gis = GIS("", "", "")
     
     try:
+        #  Connect to ArcGIS Enterprise/ArcGIS Online
         gis_servers = gis.admin.servers.list()
 
+        
         for server in gis_servers:
             print("Hello from ArcGIS API for Python!", server)
 
+        # loops through the services to stop or start the gis services
         for server in gis_servers:
             for service in server.services.list():
                 try:
@@ -39,8 +42,9 @@ def function_start_stop_services(action):
                     print("Failed to start/stop service:", service)
                     print("Error:", str(e))
 
+        
         gis_servers1 = gis.admin.servers.list()
-
+        # loops through to obtain the folders property in a tuple
         for folder in gis_servers1:
             for server in folder.services:
                 try:
@@ -51,6 +55,9 @@ def function_start_stop_services(action):
                 except Exception as e:
                     print("Error while processing folders:", str(e))
 
+
+        
+        # loops through the folder and sub-folders to start or stop services as needed
         for folder in gis_servers1:
             for server in folder.services:
                 try:

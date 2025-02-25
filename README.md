@@ -8,11 +8,10 @@ These scripts are designed to manage ArcGIS server services, allowing administra
 ## **Table of Contents**  
 - [Prerequisites](#prerequisites)  
 - [Installation](#installation)  
-- [Script 1: `state_zero_script.py`](#script-1-state_zero_scriptpy)  
+- [Script 1: `arcgis_api_python_services.py`](#script-1-arcgis_api_python_servicespy)  
 - [Script 2: `function_start_stop_services.py`](#script-2-function_start_stop_servicespy)  
 - [Usage](#usage)  
-- [Error Handling](#error-handling)  
-- [Enhancements & Future Work](#enhancements--future-work)  
+- [Error Handling](#error-handling)
 
 ---
 
@@ -34,10 +33,10 @@ Before using these scripts, ensure you have the following:
 
 ---
 
-## **Script 1: `state_zero_script.py`**  
+## **Script 1: `arcgis_api_python_services.py`**  
 
 ### **Description**  
-This script is responsible for automatically starting ArcGIS services across all servers. It also scans for folders and manages services inside them.
+This script provides a **template** for automating the management of ArcGIS services across multiple servers. It is designed to **start services automatically** while scanning for folders and managing services within them. By uncommenting the appropriate function calls (`service.start()` or `service.stop()`), the script can be easily adapted to either **start or stop services**, making it a flexible foundation for ArcGIS service management automation.
 
 ### **How It Works**
 1. Connects to ArcGIS using the `GIS` module.  
@@ -46,26 +45,6 @@ This script is responsible for automatically starting ArcGIS services across all
 4. Identifies folders and subfolders inside the server.  
 5. Starts services within those folders.  
 
-### **Code Structure**
-```python
-gis = GIS("", "", "")  # Initialize GIS connection
-
-gis_servers = gis.admin.servers.list()
-
-for server in gis_servers:
-    for service in server.services.list():
-        service.start()
-        print("Service started:", service)
-```
-
-### **Expected Output**
-```
-Service started: Service_A
-Service started: Service_B
-...
-```
-
----
 
 ## **Script 2: `function_start_stop_services.py`**  
 
@@ -122,13 +101,3 @@ Service started: Service_B
   ```
 
 ---
-
-## **Enhancements & Future Work**
-🔹 Implement logging instead of `print()` for better tracking.  
-🔹 Secure authentication using environment variables instead of hardcoded credentials.  
-🔹 Add email alerts when a service fails to start/stop.  
-
----
-
-### **Conclusion**  
-These scripts provide a robust way to manage ArcGIS services efficiently. They can be scheduled or executed manually for on-demand service management.  

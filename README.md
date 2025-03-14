@@ -10,6 +10,8 @@ These scripts are designed to manage ArcGIS server services, allowing administra
 - [Installation](#installation)  
 - [Script 1: `arcgis_api_python_services.py`](#script-1-arcgis_api_python_servicespy)  
 - [Script 2: `function_start_stop_services.py`](#script-2-function_start_stop_servicespy)  
+- [Script 3: `function_start_stop_services_external.py`](#script-3-function_start_stop_services_externalpy)  
+- [Script 4: `function_start_stop_services_stantec.py`](#script-4-function_start_stop_services_stantecpy)  
 - [Usage](#usage)  
 - [Error Handling](#error-handling)
 
@@ -17,9 +19,9 @@ These scripts are designed to manage ArcGIS server services, allowing administra
 
 ## **Prerequisites**  
 Before using these scripts, ensure you have the following:  
-✅ Python 3 installed  
-✅ ArcGIS API for Python installed (`pip install arcgis`)  
-✅ Access to an ArcGIS server with admin credentials  
++ Python 3 installed  
++ ArcGIS API for Python installed (`pip install arcgis`)  
++ Access to an ArcGIS server with admin credentials
 
 ---
 
@@ -101,3 +103,73 @@ Service started: Service_B
   ```
 
 ---
+
+## **Script 3: `function_start_stop_services_external.py`**  
+
+### **Description**  
+This script is designed to **start or stop all services** on a standalone ArcGIS Server. It supports managing services across all folders dynamically.
+
+### **How It Works**
+1. Takes a command-line argument (`start` or `stop`).  
+2. Connects to the ArcGIS server.  
+3. Iterates through all services and performs the requested action.  
+4. Identifies all hosted services, including those in folders.  
+
+### **Usage**
+Run the script with the desired action:  
+```bash
+python function_start_stop_services_external.py start
+```
+or  
+```bash
+python function_start_stop_services_external.py stop
+```
+
+### **Expected Output**
+```
+Service started: Service_A
+Service started: Service_B
+...
+```
+
+---
+
+## **Script 4: `function_start_stop_services_stantec.py`**  
+
+### **Description**  
+This script is specifically tailored to **start or stop services within the "Stantec" folder** on a standalone ArcGIS Server.
+
+### **How It Works**
+1. Takes a command-line argument (`start` or `stop`).  
+2. Connects to the ArcGIS server.  
+3. Iterates through all services within the "Stantec" folder and performs the requested action.  
+
+### **Usage**
+Run the script with the desired action:  
+```bash
+python function_start_stop_services_stantec.py start
+```
+or  
+```bash
+python function_start_stop_services_stantec.py stop
+```
+
+### **Expected Output**
+```
+Service started: Service_X
+Service started: Service_Y
+...
+```
+
+---
+
+## **Error Handling**  
+- If an invalid argument is passed (`python function_start_stop_services.py invalid`):  
+  ```
+  Invalid action. Please specify 'start' or 'stop'.
+  ```
+- If a service fails to start/stop, the error is logged:  
+  ```
+  Failed to start/stop service: Service_X
+  Error: [Detailed error message]
+  ```
